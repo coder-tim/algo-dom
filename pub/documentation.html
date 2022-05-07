@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <!-- <link rel="stylesheet" type="text/css" href="index.css"> -->
+    <link rel="stylesheet" type="text/css" href="documentation.css">
+
+   <!-- Code syntax highlighting (This is not created by me) -->
+   <link href="3rdPartyLibraries/themes/prism-coldark-dark.css" rel="stylesheet" />
+
+    <title>AlgoDOM.js</title>
+  </head>
+  <body>
+
+    <!-- Navbar Reference:  https://getbootstrap.com/docs/4.0/components/navbar/ -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html"><strong>AlgoDOM.js</strong></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="about.html">About <span class="sr-only">(current)</span></a>
+                <!-- <a class="nav-item nav-link" href="documentation.html">Documentation</a> -->
+                <!-- <a class="nav-item nav-link" href="example.html">Examples</a> -->
+                <a class="nav-item nav-link active" href="documentation.html">Documentation</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="mainContainer">
+
+      <h3>Getting Started</h3>
+      <hr>
+      <br>
+       
+      <ol>
+        <li>
+          Download the code from  <a href="https://github.com/csc309-winter-2021/js-library-feitim">here</a>.
+
+        </li>
+        <br>
+        <li>
+          In your web application's .html file, include <code>algodom.js</code> using the following tag:
+
+          <pre id="code-snippet">
+            <code class="language-markup">         
+              &lt;script type="text/javascript" src='algodom.js'>&lt;/script>
+            </code>
+          </pre>
+          
+        </li>
+      </ol>
+      
+      <br>
+      <br>
+      <br>
+
+      <h3>API Documentation</h3>
+      <hr>
+
+      <h4>1. Array</h4>
+        <ul id="#documentationList">
+          <br>
+          <li>
+            <h5><strong>Class Instantiation</strong></h5>
+
+            <pre id="code-snippet">
+              <code class="language-javascript">         
+                let exampleArray = new AlgoDomArray(color, dataStructureContent, uiToggle)
+              </code>
+            </pre>
+
+          </li>
+
+          <br><br>
+          <li>
+            <h5><strong>Parameters</strong></h5>
+
+            <table>
+              <tr>
+                <th>Parameter Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Example</th>
+              </tr>
+              <tr>
+                <td>color</td>
+                <td>string</td>
+                <td>The color of the data structure that will be generated.</td>
+                <td>'orange'</td>
+              </tr>
+              <tr>
+                <td>dataStructureContent</td>
+                <td>list of numbers or list of strings</td>
+                <td>The content that will be contained in the data structure.</td>
+                <td>[1, 3, 5, 7]</td>     
+              </tr>
+              <tr>
+                <td>uiToggle</td>
+                <td>boolean</td>
+                <td>This toggle is used to show/hide a UI that enables users to interact with the generated data structure diagram.</td>
+                <td>true</td>
+              </tr>
+            </table>
+
+          </li>
+
+          <br><br>
+
+          <li>
+            <h5><strong>Class Method(s) </strong></h5>
+            <pre>
+              <code class="language-javascript" id="code-snippet">   
+                exampleArray.drawArray()
+              </code>
+           </pre>
+
+          </li>
+
+          <br><br>
+          <li>
+            <h5><strong>Returned Value </strong></h5>
+            <ul>
+              <li>After you instantiate the class, the class method <code>.draw()</code> 
+                  will return a <code>div</code> that contains the generated diagram. 
+              </li>
+              <li>
+                 You can append the returned <code>div</code> to your web app.
+              </li>
+            </ul>
+          </li>
+
+          <br><br>
+          <li>
+            <h5><strong>Example</strong></h5>
+
+            <pre>
+              <code class="language-javascript" id="code-snippet">   
+                // arrayContainer is a div in your web app
+                const arrayContainer = document.querySelector("#arrayContainer");
+                
+                // Instantiate the class and call the method .draw()
+                let exampleArray = new AlgoDomArray('green', [1, 3, 5, 6, 9, 1], true).drawArray();
+                
+                // Append the returned div into your web app's arrayContainer div
+                arrayContainer.appendChild(exampleArray);          
+              </code>
+           </pre>
+
+           <div id="arrayContainer"></div>
+          
+          </li>
+
+        </ul>
+
+      <br><br>
+      <h4>2. Linked List</h4>
+      <ul id="#documentationList">
+        <br>
+        <li>
+          <h5><strong>Class Instantiation</strong></h5>
+
+          <pre id="code-snippet">
+            <code class="language-javascript">         
+              let exampleLinkedList = new AlgoDomLinkedList(color, dataStructureContent, uiToggle)
+            </code>
+          </pre>
+
+        </li>
+
+        <br>
+        <li>
+          <h5><strong>Parameters</strong></h5>
+          <table>
+            <tr>
+              <th>Parameter Name</th>
+              <th>Type</th>
+              <th>Description</th>
+              <th>Example</th>
+            </tr>
+            <tr>
+              <td>color</td>
+              <td>string</td>
+              <td>The color of the data structure that will be generated.</td>
+              <td>'orange'</td>
+            </tr>
+            <tr>
+              <td>dataStructureContent</td>
+              <td>list of numbers or list of strings</td>
+              <td>The content that will be contained in the data structure.</td>
+              <td>[1, 3, 5, 7]</td>     
+            </tr>
+            <tr>
+              <td>uiToggle</td>
+              <td>boolean</td>
+              <td>This toggle is used to show/hide a UI that enables users to interact with the generated data structure diagram.</td>
+              <td>true</td>
+            </tr>
+          </table>
+        </li>
+
+        <br><br>
+        <li>
+          <h5><strong>Class Method(s) </strong></h5>
+          <pre>
+            <code class="language-javascript" id="code-snippet">   
+              exampleLinkedList.drawLinkedList()
+            </code>
+         </pre>
+
+        </li>
+
+        <br><br>
+        <li>
+          <h5><strong>Returned Value </strong></h5>
+          <ul>
+            <li>After you instantiate the class, the class method <code>.draw()</code> 
+                will return a <code>div</code> that contains the generated diagram.
+            </li>
+          </ul>
+        </li>
+
+        <br><br>
+        <li>
+          <h5><strong>Example</strong></h5>
+
+          <pre>
+            <code class="language-javascript" id="code-snippet">   
+              const linkedListContainer = document.querySelector("#linkedListContainer");
+              let sampleLinkedList = new AlgoDomLinkedList('purple', [1, 22, 7, 9, 8], true).drawLinkedList();
+              linkedListContainer.appendChild(sampleLinkedList);
+            </code>
+         </pre>
+
+         <div id="linkedListContainer"></div>
+        </li>
+
+      </ul>
+
+      <br><br>
+      <h4>3. Stack</h4>
+      <ul id="#documentationList">
+        <br>
+        <li>
+          <h5><strong>Class Instantiation</strong></h5>
+
+          <pre id="code-snippet">
+            <code class="language-javascript">         
+              let exampleStack = new AlgoDomStack(color, dataStructureContent, uiToggle)
+            </code>
+          </pre>
+
+        </li>
+
+        <br>
+        <li>
+          <h5><strong>Parameters</strong></h5>
+          <table>
+            <tr>
+              <th>Parameter Name</th>
+              <th>Type</th>
+              <th>Description</th>
+              <th>Example</th>
+            </tr>
+            <tr>
+              <td>color</td>
+              <td>string</td>
+              <td>The color of the data structure that will be generated.</td>
+              <td>'orange'</td>
+            </tr>
+            <tr>
+              <td>dataStructureContent</td>
+              <td>list of numbers or list of strings</td>
+              <td>The content that will be contained in the data structure.</td>
+              <td>[1, 3, 5, 7]</td>     
+            </tr>
+            <tr>
+              <td>uiToggle</td>
+              <td>boolean</td>
+              <td>This toggle is used to show/hide a UI that enables users to interact with the generated data structure diagram.</td>
+              <td>true</td>
+            </tr>
+          </table>
+        </li>
+
+        <br><br>
+        <li>
+          <h5><strong>Class Method(s) </strong></h5>
+          <pre>
+            <code class="language-javascript" id="code-snippet">   
+              exampleStack.drawStack()
+            </code>
+         </pre>
+
+        </li>
+      
+        <br><br>
+        <li>
+          <h5><strong>Returned Value </strong></h5>
+          <ul>
+            <li>After you instantiate the class, the class method <code>.draw()</code> 
+                will return a <code>div</code> that contains the generated diagram.
+            </li>
+          </ul>
+        </li>
+
+        <br><br>
+        <li>
+          <h5><strong>Example</strong></h5>
+
+          <pre>
+            <code class="language-javascript" id="code-snippet">   
+              const stackContainer = document.querySelector("#stackContainer");
+              let sampleStack = new AlgoDomQueue('blue', [1, 2], true).drawStack();
+              stackContainer.appendChild(sampleStack);                     
+            </code>
+         </pre>
+
+         <div id="stackContainer"></div>
+        </li>
+
+      </ul>
+
+      <br><br>
+      <h4>4. Queue</h4>
+      <ul id="#documentationList">
+        <br>
+        <li>
+          <h5><strong>Class Instantiation</strong></h5>
+
+          <pre id="code-snippet">
+            <code class="language-javascript">         
+              let exampleQueue = new AlgoDomQueue(color, dataStructureContent, uiToggle)
+            </code>
+          </pre>
+
+        </li>
+
+        <br><br>
+        <li>
+          <h5><strong>Parameters</strong></h5>
+
+          <table>
+            <tr>
+              <th>Parameter Name</th>
+              <th>Type</th>
+              <th>Description</th>
+              <th>Example</th>
+            </tr>
+            <tr>
+              <td>color</td>
+              <td>string</td>
+              <td>The color of the data structure that will be generated.</td>
+              <td>'orange'</td>
+            </tr>
+            <tr>
+              <td>dataStructureContent</td>
+              <td>list of numbers or list of strings</td>
+              <td>The content that will be contained in the data structure.</td>
+              <td>[1, 3, 5, 7]</td>     
+            </tr>
+            <tr>
+              <td>uiToggle</td>
+              <td>boolean</td>
+              <td>This toggle is used to show/hide a UI that enables users to interact with the generated data structure diagram.</td>
+              <td>true</td>
+            </tr>
+          </table>
+
+        </li>
+
+        <br><br>
+        <li>
+          <h5><strong>Class Method(s) </strong></h5>
+          <pre>
+            <code class="language-javascript" id="code-snippet">   
+              exampleQueue.drawQueue()
+            </code>
+         </pre>
+
+         <br><br>
+        </li>
+        <br>
+        <li>
+          <h5><strong>Returned Value </strong></h5>
+          <ul>
+            <li>After you instantiate the class, the class method <code>.draw()</code> 
+                will return a <code>div</code> that contains the generated diagram.
+            </li>
+          </ul>
+        </li>
+
+        <br><br>
+        <li>
+          <h5><strong>Example</strong></h5>
+
+          <pre>
+            <code class="language-javascript" id="code-snippet">   
+              const queueContainer = document.querySelector("#queueContainer");
+              let sampleQueue = new AlgoDomQueue('orange', [1, 2, 3, 4, 5], true).drawQueue();
+              queueContainer.appendChild(sampleQueue);       
+            </code>
+         </pre>
+
+         <div id="queueContainer"></div>
+        </li>
+
+      </ul>
+
+      <br><br>
+      <h3>5. Animation</h3>
+      <ul id="#documentationList">
+        <br>
+        <li>
+          <h5><strong>Class Instantiation</strong></h5>
+
+          <pre id="code-snippet">
+            <code class="language-javascript">         
+              let algoDomAnimation = new AlgoDomAnimation(animationContainer, [frame1, frame2, frame3], animationSpeed)
+
+            </code>
+          </pre>
+
+        </li>
+
+        <br>
+        <li>
+          <h5><strong>Parameters</strong></h5>
+          <table>
+            <tr>
+              <th>Parameter Name</th>
+              <th>Type</th>
+              <th>Description</th>
+              <th>Example</th>
+            </tr>
+            <tr>
+              <td>animationContainer</td>
+              <td>HTML div object</td>
+              <td>A div object from your web app.</td>
+              <td>animationContainer1</td>
+            </tr>
+            <tr>
+              <td>[frame1, frame2, ...]</td>
+              <td>List of objects</td>
+              <td>Each object is a div that contains a data structure diagram. You can obtain such object by creating a static diagram using one of the methods from above (array, linked list, stack, queue).</td>
+              <td>[linkedList1, linkedList2, linkedList3]</td>     
+            </tr>
+            <tr>
+              <td>speed</td>
+              <td>A number in the range 1-3</td>
+              <td>This number indicates the animation speed. 1=slow, 2=medium, 3=fast</td>
+              <td>3</td>
+            </tr>
+          </table>
+        </li>
+
+        <br><br>
+        <li>
+          <h5><strong>Class Method(s) </strong></h5>
+          <pre>
+            <code class="language-javascript" id="code-snippet">   
+              algoDomAnimation.animate()
+            </code>
+         </pre>
+
+        </li>
+
+        <br><br>
+        <li>
+          <h5><strong>Example</strong></h5>
+
+          <pre>
+            <code class="language-javascript" id="code-snippet">   
+              const animationContainer1 = document.querySelector("#animationContainer1")
+
+              // When you instantiate the AlgoDomLinkedList class, ensure that the 3rd parameter is set to false.
+              // This will hide the interactive UI during animation, since the interactive UI is used for static diagrams only.
+              let linkedList1 = new AlgoDomLinkedList('red', [1], false).drawLinkedList()
+              let linkedList2 = new AlgoDomLinkedList('red', [1, 2], false).drawLinkedList()
+              let linkedList3 = new AlgoDomLinkedList('red', [1, 2, 3], false).drawLinkedList()
+              
+              let algoDomAnimation = new AlgoDomAnimation(animationContainer1, [linkedList1, linkedList2, linkedList3], 3)
+              algoDomAnimation.animate();       
+            </code>
+         </pre>
+
+         <div id=animationContainer1></div>
+        </li>
+
+      </ul>
+
+
+    </div>
+
+    <footer id="footer">
+      <p>Author: Tim Fei</p>
+    </footer>
+
+
+    <!-- Scripts for bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+    <!-- Code syntax highlighting (not created by me) -->
+    <script src="3rdPartyLibraries/prism.js"></script> 
+
+    <!-- Script for AlgoDOM.js -->
+	  <script type="text/javascript" src='algodom.js'></script>
+
+    <!-- Script for example.js -->
+   <script type="text/javascript" src='example.js'></script>
+
+  </body>
+</html>
